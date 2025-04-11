@@ -2,14 +2,14 @@
 
 ## Setup
 
-     . ~/.espressif/esp-idf/v5.3.2/export.sh
-     idf_tools.py install --targets esp32 qemu-xtensa
      cd ethernet
+     source .envrc
+     idf_tools.py install --targets esp32 all
+     . ~/.espressif/esp-idf/v5.3.2/export.sh
 
 ## Run
 
-    idf.py merge-bin --fill-flash-size 2MB
-    ../qemu.sh
+    idf.py qemu
 
 The output should look like this:
 
@@ -29,9 +29,9 @@ The output should look like this:
 
 First run qemu with gdb server.
 
-    ../qemu.sh -d
+    id.py qemu --gdb
 
 Then, in another terminal connect to it with gdb. This will use the
 [.gdbinit file](./.gdbinit).
 
-    .espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb
+    xtensa-esp32-elf-gdb

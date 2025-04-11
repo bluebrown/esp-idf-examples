@@ -1,0 +1,3 @@
+key,type,encoding,value
+nvs,namespace,,
+factory_pass,data,string,supersecret
